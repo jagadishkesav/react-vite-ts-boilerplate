@@ -1,1 +1,2 @@
-# react-boilerplate
+# educentralhub-portal
+educentralhub-portal
