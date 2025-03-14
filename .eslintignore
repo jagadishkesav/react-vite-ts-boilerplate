@@ -1,7 +1,0 @@
-# Eslint ignore below files and folders
-node_modules
-package-lock.json
-public
-dist
-README.md
-vite.config.ts
