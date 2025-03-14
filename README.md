@@ -1,2 +1,1 @@
-# educentralhub-portal
-educentralhub-portal
+# Vite React Typescript Boilerplate with Mui, Eslint and Prettier basic setup

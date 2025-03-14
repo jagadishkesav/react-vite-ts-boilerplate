@@ -1,0 +1,10 @@
+{
+    "$schema": "https://unpkg.com/knip@3/schema-jsonc.json",
+    "exclude": ["unlisted", "files", "dependencies", "classMembers", "exports", "types"],
+    "ignoreBinaries": [
+        "eslint",
+        "prettier",
+        "scripts/format.sh",
+        "scripts/lint.sh"
+    ]
+}
