@@ -9,7 +9,7 @@
 ### Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/react-boilerplate.git
+    git clone https://github.com/jagadishkesav/react-boilerplate.git
     cd react-boilerplate
     ```
 
