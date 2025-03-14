@@ -1,12 +1,11 @@
-import React from "react";
-import { useRoutes } from "react-router-dom";
+import { useRoutes } from 'react-router-dom';
+import { HOME } from '@/constants/routes';
+import { Home } from './pages/Home';
 
-const AppRoutes = () =>
-  useRoutes([
-    {
-      path: "/",
-      element: <>Home</>,
-    },
-  ]);
-
-export default AppRoutes;
+export const AppRoutes = () =>
+    useRoutes([
+        {
+            path: HOME,
+            element: <Home />
+        }
+    ]);
