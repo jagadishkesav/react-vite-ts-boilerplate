@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import { NOT_FOUND, ROOT } from '@/constants/routes';
+import { NOT_FOUND, ROOT } from '@/constants/router';
 import { Home } from './pages/Home';
 
 export const AppRoutes = () =>
