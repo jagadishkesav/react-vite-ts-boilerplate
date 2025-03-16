@@ -1,4 +1,13 @@
-# Vite React Typescript Boilerplate with MUI, ESLint, and Prettier Setup
+# React - Vite - TS - Boilerplate
+
+🚀 A lightweight, scalable, and modern React boilerplate for quick project setup.
+
+## ✨ Features
+- ⚡ Fast and optimized setup with **Vite**
+- 📦 Preconfigured **ESLint**, **Prettier**, and **TypeScript**
+- 🔥 React 18 with modern hooks
+- 🎨 CSS Modules & MUI support
+- 🛠️ Ready-to-use folder structure
 
 ## Project Setup
 
@@ -61,15 +70,25 @@ yarn preview
 ```
 ├── public/                 # Static assets
 ├── src/                    # Source files
+│   ├── api/                # API client
+│   ├── components/         # Reusable components
 │   ├── constants/          # Constants used throughout the app
+│   ├── features/           # Feature-specific modules
+│   ├── hooks/              # Custom hooks
 │   ├── layout/             # Layout components
 │   ├── pages/              # Page components
 │   ├── styles/             # Styling and theme files
+│   ├── types/              # TypeScript types
+│   ├── utils/              # Utility functions
 │   ├── App.tsx             # Main App component
+│   ├── env.ts              # Environment variables
 │   ├── main.tsx            # Entry point for React
-│   └── routes.tsx          # Application routes
+│   ├── routes.tsx          # Application routes
+│   └── vite-env.d.ts       # Vite environment types
 ├── .husky/                 # Husky configuration for Git hooks
-│   └── pre-commit          # Pre-commit hook script
+│   ├── _/                  # Husky internal scripts
+│   ├── pre-commit          # Pre-commit hook script
+│   └── post-merge          # Post-merge hook script
 ├── scripts/                # Custom scripts
 │   ├── lint.sh             # Linting script
 │   └── format.sh           # Formatting script
