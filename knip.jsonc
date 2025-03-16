@@ -1,5 +1,5 @@
 {
     "$schema": "https://unpkg.com/knip@3/schema-jsonc.json",
     "exclude": ["unlisted", "files", "dependencies", "classMembers", "exports", "types"],
-    "ignoreBinaries": ["scripts/format.sh", "scripts/lint.sh"]
+    "ignoreBinaries": ["scripts/format.sh", "scripts/lint.sh", "depcheck"]
 }

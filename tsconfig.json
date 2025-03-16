@@ -1,28 +1,51 @@
-{
-    "compilerOptions": {
-        "target": "ES2022",
-        "lib": ["DOM", "ES2023"], // Added DOM for browser APIs
-        "module": "ESNext",
-        "skipLibCheck": true,
-        "moduleResolution": "Node",
-        "allowImportingTsExtensions": true,
-        "isolatedModules": true,
-        "moduleDetection": "force",
-        "noEmit": true,
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true,
-        "allowSyntheticDefaultImports": true,
-        "jsx": "react-jsx",
-        "resolveJsonModule": true,
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"]
-        },
-        "rootDir": "./src"
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import viteTsconfigPaths from 'vite-tsconfig-paths';
+import svgrPlugin from 'vite-plugin-svgr';
+import istanbul from 'vite-plugin-istanbul';
+import { execSync } from 'child_process';
+
+const commitHash = execSync('git rev-parse --short HEAD').toString();
+// https://vitejs.dev/config/
+export default defineConfig({
+    define: {
+        // Ensure that any globals defined here have their values converted
+        // with `JSON.stringify` to avoid getting the following kinds of
+        // errors:
+        //
+        //     [vite] Internal server error: Failed to parse source for import
+        //     analysis because the content contains invalid JS syntax. If you
+        //     are using JSX, make sure to name the file with the .jsx or .tsx
+        //     extension.
+        //
+        // Look for other env variables in ./env.ts
+        VITE_APP_SHA: JSON.stringify(commitHash),
+        VITE_APP_VERSION: JSON.stringify(process.env.npm_package_version)
     },
-    "include": ["src", "eslint.config.js", "vite.config.ts"],
-    "exclude": ["node_modules", "dist", "**/*.config.js", "**/*.config.ts", "eslint.config.js"]
-}
+    plugins: [
+        react(),
+        viteTsconfigPaths(),
+        svgrPlugin(),
+        istanbul({
+            include: 'src/*',
+            exclude: ['node_modules'],
+            extension: ['.ts', '.tsx'],
+            requireEnv: false,
+            forceBuildInstrument: true
+        })
+    ],
+    resolve: {
+        alias: {
+            buffer: 'buffer' // alias for buffer polyfill
+        }
+    },
+    server: {
+        port: 3000,
+        open: true
+    },
+    build: {
+        outDir: 'dist',
+        manifest: true,
+        rollupOptions: {}
+    }
+});

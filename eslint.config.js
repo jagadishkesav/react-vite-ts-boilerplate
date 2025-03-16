@@ -64,7 +64,7 @@ export default [
             'no-plusplus': 'off',
             'class-methods-use-this': 'off',
             'react/forbid-prop-types': 'off',
-            'no-console': ['warn', { allow: ['debug', 'error', 'warn'] }],
+            'no-console': ['error', { allow: ['debug', 'error', 'warn'] }],
             'linebreak-style': 'off',
             'react/jsx-props-no-spreading': 0,
             'react/react-in-jsx-scope': 'off',
@@ -149,7 +149,25 @@ export default [
             'react/prop-types': 'off',
             'react/require-default-props': 'off',
             '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
-            '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }]
+            '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }],
+            'import/order': [
+                'error',
+                {
+                    groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index']],
+                    pathGroups: [
+                        {
+                            pattern: '@/**',
+                            group: 'internal',
+                            position: 'before'
+                        }
+                    ],
+                    'newlines-between': 'never',
+                    alphabetize: {
+                        order: 'asc',
+                        caseInsensitive: true
+                    }
+                }
+            ]
         }
     }
 ];
